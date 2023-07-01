@@ -1,9 +1,12 @@
 package ru.omgtu.scienceomgtu.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "author_department")
+@Data
 public class AuthorDepartment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,45 +27,4 @@ public class AuthorDepartment {
 
     @Column(name = "rate", nullable = false)
     private Double rate;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPosition() {
-        return position;
-    }
-
-    public void setPosition(String position) {
-        this.position = position;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
-    public Department getDepartment() {
-        return department;
-    }
-
-    public void setDepartment(Department department) {
-        this.department = department;
-    }
-
-    public Double getRate() {
-        return rate;
-    }
-
-    public void setRate(Double rate) {
-        this.rate = rate;
-    }
-
 }

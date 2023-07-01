@@ -1,10 +1,13 @@
 package ru.omgtu.scienceomgtu.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "author")
+@Data
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,61 +35,4 @@ public class Author {
 
     @Column(name = "birthday")
     private LocalDate birthday;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public String getPatronymic() {
-        return patronymic;
-    }
-
-    public void setPatronymic(String patronymic) {
-        this.patronymic = patronymic;
-    }
-
-    public Boolean getConfirmed() {
-        return confirmed;
-    }
-
-    public void setConfirmed(Boolean confirmed) {
-        this.confirmed = confirmed;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public LocalDate getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(LocalDate birthday) {
-        this.birthday = birthday;
-    }
-
 }

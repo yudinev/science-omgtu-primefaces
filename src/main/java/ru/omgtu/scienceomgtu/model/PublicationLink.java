@@ -1,9 +1,12 @@
 package ru.omgtu.scienceomgtu.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "publication_link")
+@Data
 public class PublicationLink {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,37 +24,4 @@ public class PublicationLink {
 //    @Lob
     @Column(name = "link", nullable = false)
     private String link;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Publication getPublication() {
-        return publication;
-    }
-
-    public void setPublication(Publication publication) {
-        this.publication = publication;
-    }
-
-    public PublicationLinkType getLinkType() {
-        return linkType;
-    }
-
-    public void setLinkType(PublicationLinkType linkType) {
-        this.linkType = linkType;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
 }

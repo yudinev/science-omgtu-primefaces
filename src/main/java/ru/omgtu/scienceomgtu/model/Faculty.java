@@ -1,9 +1,12 @@
 package ru.omgtu.scienceomgtu.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "faculty")
+@Data
 public class Faculty {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,21 +16,4 @@ public class Faculty {
 //    @Lob
     @Column(name = "name", nullable = false)
     private String name;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 }

@@ -1,9 +1,12 @@
 package ru.omgtu.scienceomgtu.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "keyword")
+@Data
 public class Keyword {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,21 +16,4 @@ public class Keyword {
 //    @Lob
     @Column(name = "keyword", nullable = false)
     private String keyword;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getKeyword() {
-        return keyword;
-    }
-
-    public void setKeyword(String keyword) {
-        this.keyword = keyword;
-    }
-
 }

@@ -1,9 +1,12 @@
 package ru.omgtu.scienceomgtu.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "author_identifier")
+@Data
 public class AuthorIdentifier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,37 +24,4 @@ public class AuthorIdentifier {
 //    @Lob
     @Column(name = "identifier_value")
     private String identifierValue;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-
-    public Identifier getIdentifier() {
-        return identifier;
-    }
-
-    public void setIdentifier(Identifier identifier) {
-        this.identifier = identifier;
-    }
-
-    public String getIdentifierValue() {
-        return identifierValue;
-    }
-
-    public void setIdentifierValue(String identifierValue) {
-        this.identifierValue = identifierValue;
-    }
-
 }

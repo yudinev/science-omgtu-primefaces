@@ -1,10 +1,13 @@
 package ru.omgtu.scienceomgtu.model;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "source_rating")
+@Data
 public class SourceRating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,45 +28,4 @@ public class SourceRating {
 
     @Column(name = "rating_date", nullable = false)
     private LocalDate ratingDate;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Source getSource() {
-        return source;
-    }
-
-    public void setSource(Source source) {
-        this.source = source;
-    }
-
-    public SourceRatingType getSourceRatingType() {
-        return sourceRatingType;
-    }
-
-    public void setSourceRatingType(SourceRatingType sourceRatingType) {
-        this.sourceRatingType = sourceRatingType;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
-
-    public LocalDate getRatingDate() {
-        return ratingDate;
-    }
-
-    public void setRatingDate(LocalDate ratingDate) {
-        this.ratingDate = ratingDate;
-    }
-
 }
