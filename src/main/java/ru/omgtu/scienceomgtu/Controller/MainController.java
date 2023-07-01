@@ -10,8 +10,6 @@ import ru.omgtu.scienceomgtu.model.Organization;
 import ru.omgtu.scienceomgtu.repository.AuthorRepository;
 import ru.omgtu.scienceomgtu.repository.OrganizationRepository;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 @RestController
