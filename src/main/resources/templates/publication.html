@@ -5,9 +5,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Science | ОмГТУ</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/navbar.css}">
 </head>
 <body>
-    <div class="main">
+    <div th:include="navbar :: navbar" class="navbar"></div>
+
+    <div class="app-wrapper">
         <h2 th:text="${publication.getId()}"></h2>
         <h1 th:text="${publication.getTitle()}"></h1>
         <h3 th:text="${publication.getAbstractField()}"></h3>

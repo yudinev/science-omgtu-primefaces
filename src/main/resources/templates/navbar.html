@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Science | ОмГТУ</title>
+</head>
+<body>
+    <div th:fragment="navbar" class="navbar">
+        <div class="nav-align">
+            <div class="navbar-logo">
+                <a th:href="@{/}">Science</a>
+            </div>
+
+            <div class="navbar-links">
+                <a class="navbar-link" th:href="@{/publications}">Публикации</a>
+                <a class="navbar-link" th:href="@{/}">Персоналии</a>
+                <a class="navbar-link" th:href="@{/}">Источники</a>
+                <a class="navbar-link" th:href="@{/}">Аналитика</a>
+            </div>
+
+            <div class="navbar-login">
+                <a th:href="@{/login}" class="navbar-link">Войти</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
