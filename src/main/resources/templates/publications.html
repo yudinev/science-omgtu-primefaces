@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Science | ОмГТУ</title>
 </head>
 <body>
-
+    <div class="main">
+        <div th:each="publication : ${publications}" class="publication-wrapper">
+            <h2 th:text="${publication.getId()}"></h2>
+            <h1 th:text="${publication.getTitle()}"></h1>
+            <h3 th:text="${publication.getAbstractField()}"></h3>
+        </div>
+    </div>
 </body>
 </html>

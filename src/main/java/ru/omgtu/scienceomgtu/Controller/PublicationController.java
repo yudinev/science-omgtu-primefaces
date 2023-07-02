@@ -16,7 +16,8 @@ public class PublicationController {
 
     @GetMapping("/publications")
     public ModelAndView getAllPublications(ModelAndView modelAndView) {
-
+        modelAndView.addObject("publications", publicationService.getTop20Publications());
+        modelAndView.setViewName("publications");
         return modelAndView;
     }
 

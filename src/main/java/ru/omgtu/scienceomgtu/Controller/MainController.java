@@ -2,11 +2,9 @@ package ru.omgtu.scienceomgtu.Controller;
 
 
 import com.google.gson.Gson;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
-import ru.omgtu.scienceomgtu.JsonResponse;
 import ru.omgtu.scienceomgtu.model.Author;
 import ru.omgtu.scienceomgtu.model.Organization;
 import ru.omgtu.scienceomgtu.repository.AuthorRepository;
@@ -25,17 +23,6 @@ public class MainController {
     @GetMapping("/authors")
     public List<Author> authors() {
         return authorRepository.findAll();
-    }
-
-    @GetMapping("/author/{id}")
-    public String authorById(@PathVariable Integer id) {
-        RestTemplate restTemplate = new RestTemplate();
-        String jsonString = restTemplate.getForObject("https://science.omgtu.ru/api/author/" + id, String.class);
-
-        Gson gson = new Gson();
-        JsonResponse jsonResponse = gson.fromJson(jsonString, JsonResponse.class);
-
-        return jsonString;
     }
 
     @GetMapping("/organizations")
