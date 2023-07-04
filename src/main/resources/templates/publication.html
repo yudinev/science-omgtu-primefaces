@@ -7,14 +7,16 @@
     <title>Science | ОмГТУ</title>
     <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/navbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/publication.css}">
 </head>
 <body>
     <div th:include="navbar :: navbar" class="navbar"></div>
 
     <div class="app-wrapper">
         <h2 th:text="${publication.getId()}"></h2>
-        <h1 th:text="${publication.getTitle()}"></h1>
-        <h3 th:text="${publication.getAbstractField()}"></h3>
+        <h3 th:if="${publication.scopusLink != null}" th:text="'Scopus: ' + ${publication.getScopusLink()}"></h3>
+        <h3 th:if="${publication.doi != null}" th:text="'DOI: ' + ${publication.getDoi()}"></h3>
+        <h3 th:if="${publication.elibrary != null}" th:text="'Elibrary: ' + ${publication.getElibrary()}"></h3>
     </div>
 </body>
 </html>

@@ -39,4 +39,13 @@ public class Publication {
 
     @Transient
     private List<Author> authorList;
+
+    @Transient
+    private String scopusLink;
+
+    @Transient
+    private String doi;
+
+    @Transient
+    private String elibrary;
 }
