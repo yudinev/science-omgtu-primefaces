@@ -1,0 +1,22 @@
+.publication-wrapper {
+    border: 1px solid;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 16px;
+    border-radius: 10px;
+    color: black;
+}
+
+.publication-wrapper h4 {
+    margin: 5px 0 5px 0;
+}
+
+.publication-wrapper a {
+    margin: 5px 0 5px 0;
+    color: black;
+    text-decoration: none;
+}
+
+.publication-wrapper a:hover {
+    color: #06c895;
+}

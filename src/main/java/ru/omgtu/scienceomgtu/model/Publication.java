@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "publication")
@@ -35,4 +36,7 @@ public class Publication {
 
     @Column(name = "accepted", nullable = false)
     private Boolean accepted = false;
+
+    @Transient
+    private List<Author> authorList;
 }
