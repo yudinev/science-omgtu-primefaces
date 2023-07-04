@@ -15,7 +15,8 @@
     <div class="app-wrapper">
         <div th:each="publication : ${publications}" class="publication-wrapper">
             <h4 class="publication-type" th:text="${publication.getType().getName()}">Тип статьи</h4>
-            <a class="publication-journal" th:href="${'/publication/' + publication.getSource().getId()}" th:text="${publication.getSource().getName()}">Журнал</a><br>
+            <a class="publication-journal" th:href="${'/source/' + publication.getSource().getId()}" th:text="${publication.getSource().getName()}">Журнал</a><br>
+            <a class="publication-title" th:href="${'/publication/' + publication.getId()}" th:text="${publication.getTitle()}">Название статьи</a><br>
             <a class="publication-author" th:each="author : ${publication.getAuthorList()}"
                th:href="${'/author/' + author.getId()}" th:text="${author.getSurname() + ' ' + author.getName() + '  '}">Автор статьи</a>
             <h4 class="publication-year" th:text="${publication.getPublicationDate().getYear()}">Дата</h4>
