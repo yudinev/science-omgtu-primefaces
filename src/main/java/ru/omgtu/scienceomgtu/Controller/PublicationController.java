@@ -23,7 +23,9 @@ public class PublicationController {
 
     @GetMapping("/publication/{id}")
     public ModelAndView getPublication(ModelAndView modelAndView, @PathVariable Integer id) {
-        modelAndView.addObject("publication", publicationService.getPublicationById(id));
+        Publication publication = publicationService.getPublicationById(id);
+        modelAndView.addObject("publication", publication);
+        System.out.println(publication);
         modelAndView.setViewName("publication");
 
         return modelAndView;

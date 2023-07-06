@@ -4,6 +4,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "author")
@@ -14,15 +15,12 @@ public class Author {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-//    @Lob
     @Column(name = "name", nullable = false)
     private String name;
 
-//    @Lob
     @Column(name = "surname", nullable = false)
     private String surname;
 
-//    @Lob
     @Column(name = "patronymic")
     private String patronymic;
 
@@ -35,4 +33,10 @@ public class Author {
 
     @Column(name = "birthday")
     private LocalDate birthday;
+
+    @Transient
+    private List<Organization> organizations;
+
+    @Transient
+    private String organizations_text;
 }

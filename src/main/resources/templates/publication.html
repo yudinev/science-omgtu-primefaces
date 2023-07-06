@@ -7,16 +7,51 @@
     <title>Science | ОмГТУ</title>
     <link rel="stylesheet" type="text/css" th:href="@{/styles/styles.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/navbar.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/publications.css}">
     <link rel="stylesheet" type="text/css" th:href="@{/styles/publication.css}">
 </head>
 <body>
     <div th:include="navbar :: navbar" class="navbar"></div>
 
     <div class="app-wrapper">
-        <h2 th:text="${publication.getId()}"></h2>
-        <h3 th:if="${publication.scopusLink != null}" th:text="'Scopus: ' + ${publication.getScopusLink()}"></h3>
-        <h3 th:if="${publication.doi != null}" th:text="'DOI: ' + ${publication.getDoi()}"></h3>
-        <h3 th:if="${publication.elibrary != null}" th:text="'Elibrary: ' + ${publication.getElibrary()}"></h3>
+
+        <div class="publication-wrapper">
+            <h4 class="publication-type" th:text="${publication.getType().getName()}">Тип статьи</h4>
+            <a class="publication-journal" th:href="${'/source/' + publication.getSource().getId()}" th:text="${publication.getSource().getName()}">Журнал</a>
+        </div>
+
+        <div class="publication-wrapper">
+            <a class="publication-title" th:href="${'/publication/' + publication.getId()}" th:text="${publication.getTitle()}">Название статьи</a><br>
+            <h4 class="publication-year" th:text="${publication.getPublicationDate()}">Дата</h4>
+        </div>
+
+        <div class="publication-wrapper">
+            <h4>Авторы:</h4>
+            <div style="display: grid">
+                <a class="publication-author" th:each="author : ${publication.getAuthorList()}"
+                   th:href="${'/author/' + author.getId()}"
+                   th:text="${author.getSurname() + ' ' + author.getName() + '   ' + author.getOrganizations_text()}">Автор статьи</a>
+            </div>
+        </div>
+        <div class="publication-wrapper">
+            <h4>Аннотация:</h4>
+            <h4 style="font-weight: 400;" th:text="${publication.getAbstractField()}">Аннотация</h4>
+        </div>
+
+        <div class="publication-wrapper">
+            <h4>Ключевые слова:</h4>
+            <h4 style="font-weight: 400;" th:text="${publication.getKeywords()}">Ключевые слова</h4>
+        </div>
+
+        <div class="publication-wrapper">
+            <h4 style="font-weight: 400;" th:if="${publication.scopusLink != null}">Scopus:
+                <a style="font-weight: 400;" th:href="${publication.getScopusLink()}" th:text="${publication.getScopusLink()}"></a>
+            </h4>
+            <h4 style="font-weight: 400;" th:if="${publication.doi != null}" th:text="'DOI: ' + ${publication.getDoi()}">DOI</h4>
+            <h4 style="font-weight: 400;" th:if="${publication.elibrary != null}">Elibrary:
+                <a style="font-weight: 400;" th:href="${publication.getElibrary()}" th:text="${publication.getElibrary()}"></a>
+            </h4>
+        </div>
     </div>
 </body>
 </html>

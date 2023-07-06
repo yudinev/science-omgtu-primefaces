@@ -23,11 +23,9 @@ public class Publication {
     @JoinColumn(name = "source_id", nullable = false)
     private Source source;
 
-//    @Lob
     @Column(name = "title", nullable = false)
     private String title;
 
-//    @Lob
     @Column(name = "abstract")
     private String abstractField;
 
@@ -39,6 +37,9 @@ public class Publication {
 
     @Transient
     private List<Author> authorList;
+
+    @Transient
+    private String keywords;
 
     @Transient
     private String scopusLink;
