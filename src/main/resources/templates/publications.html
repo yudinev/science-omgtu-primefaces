@@ -13,13 +13,64 @@
     <div th:include="navbar :: navbar" class="navbar"></div>
 
     <div class="app-wrapper">
-        <div th:each="publication : ${publications}" class="publication-wrapper">
-            <h4 class="publication-type" th:text="${publication.getType().getName()}">Тип статьи</h4>
-            <a class="publication-journal" th:href="${'/source/' + publication.getSource().getId()}" th:text="${publication.getSource().getName()}">Журнал</a><br>
-            <a class="publication-title" th:href="${'/publication/' + publication.getId()}" th:text="${publication.getTitle()}">Название статьи</a><br>
-            <a class="publication-author" th:each="author : ${publication.getAuthorList()}"
-               th:href="${'/author/' + author.getId()}" th:text="${author.getSurname() + ' ' + author.getName() + '  '}">Автор статьи</a>
-            <h4 class="publication-year" th:text="${publication.getPublicationDate().getYear()}">Дата</h4>
+        <div class="publication-filter-wrapper">
+            <div class="filter-number">
+                Отображать по:
+                <ul>
+                    <li>20</li>
+                    <li>40</li>
+                    <li>80</li>
+                </ul>
+            </div>
+
+            <div class="filters">
+                <div>Фильтры:</div>
+                <form class="filters-form">
+                    <div>
+                        <label class="filter-label">Период времени</label><br>
+                        ОТ: <input name="beforeTime" type="date"><br>
+                        ДО: <input name="afterTime" type="date"><br>
+                    </div>
+                    <div>
+                        <label class="filter-label">Тип публикации</label>
+                        <select class="filter-select" name="publicationTime">
+                            <option></option>
+                            <option th:each="type : ${publicationTypes}"
+                                    th:value="${type}" th:text="${type}"></option></select><br/>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label class="filter-label">Рейтинг</label>
+                        <select class="filter-select" name="sourceRating">
+                            <option></option>
+                            <option th:each="rating : ${ratings}"
+                                    th:value="${rating}" th:text="${rating}"></option></select><br/>
+                        </select><br>
+                    </div>
+                    <div>
+                        <label class="filter-label">Кафедра</label>
+                        <select class="filter-select" name="department">
+                            <option></option>
+                            <option th:each="department : ${departments}"
+                                    th:value="${department}" th:text="${department}"></option></select><br/>
+                        </select><br>
+                    </div>
+                    <div>
+                        <input type="submit" value="Применить">
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <div th:each="publication : ${publications}" class="publication-wrapper">
+                <h4 class="publication-type" th:text="${publication.getType().getName()}">Тип статьи</h4>
+                <a class="publication-journal" th:href="${'/source/' + publication.getSource().getId()}" th:text="${publication.getSource().getName()}">Журнал</a><br>
+                <a class="publication-title" th:href="${'/publication/' + publication.getId()}" th:text="${publication.getTitle()}">Название статьи</a><br>
+                <a class="publication-author" th:each="author : ${publication.getAuthorList()}"
+                   th:href="${'/author/' + author.getId()}" th:text="${author.getSurname() + ' ' + author.getName() + '  '}">Автор статьи</a>
+                <h4 class="publication-year" th:text="${publication.getPublicationDate().getYear()}">Дата</h4>
+            </div>
         </div>
     </div>
 </body>

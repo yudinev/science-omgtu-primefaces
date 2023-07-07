@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.servlet.ModelAndView;
 import ru.omgtu.scienceomgtu.model.Publication;
+import ru.omgtu.scienceomgtu.service.FilterService;
 import ru.omgtu.scienceomgtu.service.PublicationService;
 
 @Controller
@@ -14,8 +15,16 @@ public class PublicationController {
     @Autowired
     private PublicationService publicationService;
 
+    @Autowired
+    private FilterService filterService;
+
     @GetMapping("/publications")
     public ModelAndView getAllPublications(ModelAndView modelAndView) {
+
+        modelAndView.addObject("ratings", filterService.getRatings());
+        modelAndView.addObject("departments", filterService.getDepartments());
+        modelAndView.addObject("publicationTypes", filterService.getPublicationTypes());
+
         modelAndView.addObject("publications", publicationService.getTop20Publications());
         modelAndView.setViewName("publications");
         return modelAndView;
@@ -25,7 +34,6 @@ public class PublicationController {
     public ModelAndView getPublication(ModelAndView modelAndView, @PathVariable Integer id) {
         Publication publication = publicationService.getPublicationById(id);
         modelAndView.addObject("publication", publication);
-        System.out.println(publication);
         modelAndView.setViewName("publication");
 
         return modelAndView;

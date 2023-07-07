@@ -1,3 +1,37 @@
+.app-wrapper {
+    display: flex;
+}
+
+.publication-filter-wrapper {
+    max-width: 20%;
+}
+
+.filter-number > ul {
+    list-style: none;
+    display: inline;
+    padding-inline-start: 0;
+    font-size: 18px;
+}
+
+.filter-number > ul > li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.filter-number > ul > li:active {
+    color: #06c895;
+    font-weight: bold;
+}
+
+.filter-select {
+    min-width: 90%;
+    max-width: 90%;
+}
+
+
+
+
+
 .publication-wrapper {
     border: 1px solid;
     padding: 10px;
