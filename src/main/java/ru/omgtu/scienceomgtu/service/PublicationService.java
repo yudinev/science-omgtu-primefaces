@@ -1,6 +1,8 @@
 package ru.omgtu.scienceomgtu.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import ru.omgtu.scienceomgtu.model.*;
 import ru.omgtu.scienceomgtu.repository.*;
@@ -25,6 +27,17 @@ public class PublicationService {
 
     @Autowired
     private KeywordsPublicationRepository keywordsPublicationRepository;
+
+    public Page<Publication> findPublicationsWithPagination(int offset, int pageSize) {
+        Page<Publication> publicationsPage = publicationRepository.findAll(PageRequest.of(offset - 1, pageSize));
+
+        for (int i = 0; i < publicationsPage.getSize(); i++) {
+            List<Author> authors = getAuthorList(publicationsPage.getContent().get(i));
+            publicationsPage.getContent().get(i).setAuthorList(authors);
+        }
+
+        return publicationsPage;
+    }
 
     public Publication getPublicationById(Integer id) {
         Publication publication = publicationRepository.findPublicationById(id);
