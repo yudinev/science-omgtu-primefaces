@@ -15,7 +15,7 @@ import ru.omgtu.scienceomgtu.service.PublicationService;
 @Controller
 public class PublicationController {
 
-    private final int DEFAULT_PAGE_SIZE = 20;
+    private int page_size = 20;
 
     @Autowired
     private PublicationService publicationService;
@@ -26,9 +26,12 @@ public class PublicationController {
     @GetMapping("/publications/page/{offset}")
     public ModelAndView getAllPublicationsFiltered(ModelAndView modelAndView, @PathVariable int offset,
                                                    @RequestParam(required = false) Integer pageSize) {
-        if (pageSize == null) pageSize = DEFAULT_PAGE_SIZE;
+        if (pageSize == null) pageSize = page_size;
+        else page_size = pageSize;
+
         Page<Publication> allPublications = publicationService.findPublicationsWithPagination(offset, pageSize);
 
+        modelAndView.addObject("pageSize", page_size);
         modelAndView.addObject("currentPage", offset);
         modelAndView.addObject("totalPages", allPublications.getTotalPages() - 1);
 

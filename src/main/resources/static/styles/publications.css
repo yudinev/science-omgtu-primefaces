@@ -18,6 +18,16 @@
     padding: 5px;
 }
 
+.filter-number > ul > li > a {
+    color: black;
+    text-decoration: none;
+}
+
+.filter-number > ul > li > a:visited {
+    color: black;
+    text-decoration: none;
+}
+
 .filter-number > ul > li:active {
     color: #06c895;
     font-weight: bold;
@@ -53,4 +63,29 @@
 
 .publication-wrapper a:hover {
     color: #06c895;
+}
+
+
+
+.publication-pages {
+    text-align: center;
+}
+
+.publication-pages > span {
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+}
+
+.publication-pages > span > a {
+    font-size: 25px;
+    padding: 5px;
+    font-weight: normal;
+    color: black;
+    text-decoration: none;
+}
+
+.publication-pages > span > a:visited {
+    color: black;
+    text-decoration: none;
 }

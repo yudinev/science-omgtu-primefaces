@@ -17,9 +17,9 @@
             <div class="filter-number">
                 Отображать по:
                 <ul>
-                    <li><a th:href="@{__${#httpServletRequest.requestURI + '?pageSize=20'}__}">20</a></li>
-                    <li><a th:href="@{__${#httpServletRequest.requestURI + '?pageSize=40'}__}">40</a></li>
-                    <li><a th:href="@{__${#httpServletRequest.requestURI + '?pageSize=80'}__}">80</a></li>
+                    <li><a th:href="@{'/publications/page/1?pageSize=20'}">20</a></li>
+                    <li><a th:href="@{'/publications/page/1?pageSize=40'}">40</a></li>
+                    <li><a th:href="@{'/publications/page/1?pageSize=80'}">80</a></li>
                 </ul>
             </div>
 
@@ -72,9 +72,9 @@
                 <h4 class="publication-year" th:text="${publication.getPublicationDate().getYear()}">Дата</h4>
             </div>
 
-            <div th:if="${currentPage < 4}">
+            <div class="publication-pages" th:if="${currentPage < 4}">
                 <span th:each="page : ${#numbers.sequence(1, 5)}">
-                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=10'}" >[[${page}]]</a>
+                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=' + ${pageSize}}" >[[${page}]]</a>
                     <span th:unless="${page != currentPage}">[[${page}]]</span>
                     &nbsp;&nbsp;
                 </span>
@@ -82,15 +82,15 @@
                     ...&nbsp;&nbsp;
                 </span>
                 <span th:each="page : ${#numbers.sequence(totalPages - 1, totalPages)}">
-                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=10'}" >[[${page}]]</a>
+                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=' + ${pageSize}}" >[[${page}]]</a>
                     <span th:unless="${page != currentPage}">[[${page}]]</span>
                     &nbsp;&nbsp;
                 </span>
             </div>
 
-            <div th:if="${currentPage >= 4 && currentPage < totalPages - 4}">
+            <div class="publication-pages" th:if="${currentPage >= 4 && currentPage < totalPages - 4}">
                 <span th:each="page : ${#numbers.sequence(currentPage - 2, currentPage + 2)}">
-                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=10'}" >[[${page}]]</a>
+                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=' + ${pageSize}}" >[[${page}]]</a>
                     <span th:unless="${page != currentPage}">[[${page}]]</span>
                     &nbsp;&nbsp;
                 </span>
@@ -98,20 +98,20 @@
                     ...&nbsp;&nbsp;
                 </span>
                 <span th:each="page : ${#numbers.sequence(totalPages - 1, totalPages)}">
-                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=10'}" >[[${page}]]</a>
+                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=' + ${pageSize}}" >[[${page}]]</a>
                     <span th:unless="${page != currentPage}">[[${page}]]</span>
                 </span>
                 &nbsp;&nbsp;
             </div>
 
-            <div th:if="${currentPage >= totalPages - 4}">
+            <div class="publication-pages" th:if="${currentPage >= totalPages - 4}">
                 <span th:if="${currentPage < totalPages - 1}" th:each="page : ${#numbers.sequence(currentPage - 2, totalPages)}">
-                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=10'}" >[[${page}]]</a>
+                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=' + ${pageSize}}" >[[${page}]]</a>
                     <span th:unless="${page != currentPage}">[[${page}]]</span>
                     &nbsp;&nbsp;
                 </span>
                 <span th:unless="${currentPage < totalPages - 1}" th:each="page : ${#numbers.sequence(totalPages - 4, totalPages)}">
-                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=10'}" >[[${page}]]</a>
+                    <a th:if="${page != currentPage}" th:href="@{'/publications/page/' + ${page} + '?pageSize=' + ${pageSize}}" >[[${page}]]</a>
                     <span th:unless="${page != currentPage}">[[${page}]]</span>
                     &nbsp;&nbsp;
                 </span>
