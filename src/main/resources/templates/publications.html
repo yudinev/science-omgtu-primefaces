@@ -17,9 +17,9 @@
             <div class="filter-number">
                 Отображать по:
                 <ul>
-                    <li>20</li>
-                    <li>40</li>
-                    <li>80</li>
+                    <li><a th:href="@{__${#httpServletRequest.requestURI + '?pageSize=20'}__}">20</a></li>
+                    <li><a th:href="@{__${#httpServletRequest.requestURI + '?pageSize=40'}__}">40</a></li>
+                    <li><a th:href="@{__${#httpServletRequest.requestURI + '?pageSize=80'}__}">80</a></li>
                 </ul>
             </div>
 

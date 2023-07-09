@@ -15,7 +15,7 @@ import ru.omgtu.scienceomgtu.service.PublicationService;
 @Controller
 public class PublicationController {
 
-    private final int DEFAULT_PAGE_SIZE = 10;
+    private final int DEFAULT_PAGE_SIZE = 20;
 
     @Autowired
     private PublicationService publicationService;
