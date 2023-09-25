@@ -1,0 +1,91 @@
+.app-wrapper {
+    display: flex;
+}
+
+.publication-filter-wrapper {
+    max-width: 20%;
+}
+
+.filter-number > ul {
+    list-style: none;
+    display: inline;
+    padding-inline-start: 0;
+    font-size: 18px;
+}
+
+.filter-number > ul > li {
+    display: inline-block;
+    padding: 5px;
+}
+
+.filter-number > ul > li > a {
+    color: black;
+    text-decoration: none;
+}
+
+.filter-number > ul > li > a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+.filter-number > ul > li:active {
+    color: #06c895;
+    font-weight: bold;
+}
+
+.filter-select {
+    min-width: 90%;
+    max-width: 90%;
+}
+
+
+
+
+
+.publication-wrapper {
+    border: 1px solid;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-size: 17px;
+    border-radius: 10px;
+    color: black;
+}
+
+.publication-wrapper h4 {
+    margin: 5px 0 5px 0;
+}
+
+.publication-wrapper a {
+    margin: 5px 0 5px 0;
+    color: black;
+    text-decoration: none;
+}
+
+.publication-wrapper a:hover {
+    color: #06c895;
+}
+
+
+
+.publication-pages {
+    text-align: center;
+}
+
+.publication-pages > span {
+    font-size: 25px;
+    color: black;
+    font-weight: bold;
+}
+
+.publication-pages > span > a {
+    font-size: 25px;
+    padding: 5px;
+    font-weight: normal;
+    color: black;
+    text-decoration: none;
+}
+
+.publication-pages > span > a:visited {
+    color: black;
+    text-decoration: none;
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<pe:head>
+    <ui:insert name="title">
+        <title>Наука</title>
+    </ui:insert>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/publication.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/publications.css" type="text/css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/styles.css" type="text/css"/>
+
+
+
+</pe:head>
+<h:body>
+    <div class="navbar">Наука ОмГТУ</div>
+
+    <h:form>
+
+        <p:outputPanel rendered="#{not empty publicationBean.publication}">
+
+            <div class="flex flex-column">
+
+                <div class="flex-1 publication-wrapper align-content-start">
+                    <h:outputText value="Тип статьи" styleClass="publication-type"/>
+                    <div>
+                        <h:outputText value="#{publicationBean.publication.type.name}" styleClass="publication-type"/>
+                    </div>
+
+
+                    <h:outputText value="Журнал" styleClass="publication-journal"/>
+                    <div>
+                        <h:outputText value="#{publicationBean.publication.source.name}" styleClass=" publication-journal"/>
+                    </div>
+
+                </div>
+
+                <div class="flex-1 publication-wrapper">
+                    <h:outputText value="Название статьи" styleClass="publication-title"/>
+                    <div>
+                        <h:outputText value="#{publicationBean.publication.title}" styleClass="publication-title"/>
+                    </div>
+
+
+
+                    <h:outputText value="Дата" styleClass="publication-year"/>
+                    <div>
+                        <h:outputText value="#{publicationBean.publication.publicationDate}" styleClass="publication-year"/>
+                    </div>
+
+                </div>
+
+                <div class="flex-1 publication-wrapper">
+                    <h4>Авторы:</h4>
+                    <div style="display: grid">
+                        <h:outputText value="Автор статьи" styleClass="publication-author"/>
+                        <p:repeat value="#{publicationBean.publication.authorList}" var="author">
+                            <h:outputText value="#{author.name}" styleClass="publication-author"/>
+                            <h:outputText value="#{author.surname}" styleClass="publication-author"/>
+                            <h:outputText value="#{author.organizations_text}" styleClass="publication-author"/>
+                        </p:repeat>
+                    </div>
+                </div>
+                <div class="flex-1 publication-wrapper">
+                    <h4>Аннотация:</h4>
+                    <h:outputText value="#{publicationBean.publication.abstractField}" style="font-weight: 400;"/>
+                </div>
+
+                <div class="flex-1 publication-wrapper">
+                    <h4>Ключевые слова:</h4>
+                    <h:outputText value="#{publicationBean.publication.keywords}" style="font-weight: 400;"/>
+                </div>
+            </div>
+        </p:outputPanel>
+    </h:form>
+</h:body>
+</html>
+

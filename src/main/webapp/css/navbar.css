@@ -1,0 +1,47 @@
+.navbar {
+    margin: 0 auto;
+    grid-area: header;
+    max-width: 1200px;
+    box-shadow: 3px 3px 1px rgba(0, 0, 0, .05);
+    margin-bottom: 30px;
+    position: relative;
+    display: flex;
+    font-size: 50px;
+    justify-content: space-between;
+    padding: 20px 30px;
+    border-width: 1px 1px 2px 1px;
+    border-style: solid;
+    border-radius: 10px;
+    color: black;
+}
+
+.nav-align {
+    display: contents;
+}
+
+.navbar-logo > a {
+    text-decoration: none;
+    color: black;
+    font-size: 50px;
+}
+
+.navbar-links {
+    display: flex;
+    margin-left: 30px;
+    align-items: center;
+    font-size: 18px;
+    line-height: 28px;
+    color: black;
+}
+
+.navbar-link {
+    margin-right: 30px;
+}
+
+.navbar-login {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    line-height: 28px;
+    color: black;
+}
